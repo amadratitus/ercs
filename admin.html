@@ -12,58 +12,84 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body style="background-color: #f8f9fa;">
-    <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark sticky-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img src="images/logo.png" alt="Logo" style="width:45px;" class="rounded-pill">
           </a>
-          <span class="navbar-brand text-light fw-bold d-none d-md-block">
-                EXAMINATION RESULT COMPLAINT MANAGEMENT SYSTEM
-          </span>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse fw-bold justify-content-end" id="collapsibleNavbar">
-            <ul class="navbar-nav fw-bold">
-              <li class="nav-item">
-                <a class="nav-link active" data-bs-toggle="tab" href="#home">LECTURER</a>
-              </li>
-              <div class="vr d-none d-md-block"></div>
-              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#menu1">FACULTY/SCHOOL</a>
-              </li>
-              <div class="vr d-none d-md-block"></div>
-              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#menu2">DEPARTMENT</a>
-              </li>    
-            </ul>
+            <span class="navbar-brand text-light fw-bold d-none d-md-block">
+              EXAMINATION RESULT COMPLAINT MANAGEMENT SYSTEM
+            </span>
           </div>
         </div>
       </nav>
 <!--Enter NavBar-->
+<!--Off canvas menu-->
+<div class="offcanvas offcanvas-top" style="height:250px;" id="demo">
+  <div class="offcanvas-header">
+    <button type="button" class="btn-sm btn-close float-end" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body p-2">
+    <div class="fw-bold">
+      <span class="">Register</span>
+      <hr class="w-75">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#home">Lecturer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" hdata-bs-toggle="tab" href="#faculty">Faculty/School</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#department">Department</a>
+        </li>
+      </ul>
+      </div>
+      <div class="fw-bold">
+      <span class="">Complaint Status</span>
+        <hr class="w-75">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#new">New</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#pending">Pending</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#completed">Completed</a>
+        </li>
+      </ul>
+      </div>
+  </div>
+</div>
+<!--offcanvas end-->
 <!--Start of Body-->
 <div class="container-fluid">
 <div class="row">
-    <div class="col-2 d-none d-md-block bg-primary text-white pt-3" style="height: 500px;">
-        <h5 class="text-center fw-bold"><i>Register</i></h5>
+    <div class="col-2 d-none d-md-block bg-primary text-white mt-5 bg-opacity-50 fixed-top vh-100">
+        <h5 class="text-center fw-bold mt-4"><i>Register</i></h5>
         <hr>
         <div class="container-fluid flex-column nav nav-tabs">
-            <button class="btn btn-warning btn-block m-1 fw-bold active" data-bs-toggle="tab" href="#home">LECTURER</button>
-            <button class="btn btn-light m-1 fw-bold" data-bs-toggle="tab" href="#faculty">FACULTY/SCHOOL</button>
-            <button class="btn btn-light m-1 fw-bold" data-bs-toggle="tab" href="#department">DEPARTMENT</button>
+            <button class="btn btn-warning btn-block m-1 fw-bold active" data-bs-toggle="collapse" data-bs-target="#home">LECTURER</button>
+            <button class="btn btn-light m-1 fw-bold" data-bs-toggle="collapse" data-bs-target="#faculty">FACULTY/SCHOOL</button>
+            <button class="btn btn-light m-1 fw-bold" data-bs-toggle="collapse" data-bs-target="#department">DEPARTMENT</button>
         </div>
         <h5 class="text-center fw-bold pt-4"><i>Complaint Status</i></h5>
         <hr>
         <div class="container-fluid flex-column nav nav-tabs">
-            <button class="btn btn-outline-success m-1 fw-bold" data-bs-toggle="tab" href="#new">NEW</button>
-            <button class="btn btn-outline-success m-1 fw-bold" data-bs-toggle="tab" href="#pending">PENDING</button>
-            <button class="btn btn-outline-success m-1 fw-bold" data-bs-toggle="tab" href="#completed">COMPLETED</button>
+            <button class="btn btn-outline-success m-1 fw-bold" data-bs-toggle="collapse" data-bs-target="#new">NEW</button>
+            <button class="btn btn-outline-success m-1 fw-bold" data-bs-toggle="collapse" data-bs-target="#pending">PENDING</button>
+            <button class="btn btn-outline-success m-1 fw-bold" data-bs-toggle="collapse" data-bs-target="#completed">COMPLETED</button>
         </div>
     </div>
-    <div class="col-10 bg-light text-dark container-fluid">
+    <div class="col-10 bg-light text-dark container-fluid bg-opacity-50 offset-2 offset-sm-none justify-content-center">
          <!-- Tab panes registeration-->
-        <div class="tab-content">
-            <div id="home" class="tab-pane fade"><br>
+        <div class="container-fluid mx-auto">
+            <div id="home" class="collapse show collapse-sm show"><br>
             <h3 class="text-center">REGISTER LECTURER</h3>
             <hr>
             <form>
@@ -109,7 +135,7 @@
               </form>
             </div>
 
-            <div id="faculty" class="tab-pane fade"><br>
+            <div id="faculty" class="collapse"><br>
                 <h3 class="text-center">REGISTER FACULTY / SCHOOL</h3>
                 <hr>
                 <form>
@@ -135,7 +161,7 @@
                   </form>
             </div>
 
-            <div id="department" class="tab-pane fade"><br>
+            <div id="department" class="collapse"><br>
                 <h3 class="text-center">REGISTER DEPARTMENT</h3>
                 <hr>
                 <form>
@@ -181,7 +207,7 @@
                   </form>
             </div>
     <!-- Tab panes registeration-->
-                <div id="new" class="tab-pane fade"><br>
+                <div id="new" class="collapse"><br>
                 <h3 class="text-center">NEW COMPLAINTS</h3>
                 <hr>
                 <div class="table-responsive">
@@ -227,15 +253,97 @@
                   </div>
                 </div>
 
-                <div id="pending" class="tab-pane fade"><br>
+                <div id="pending" class="collapse"><br>
                     <h3 class="text-center">PENDING COMPLAINTS</h3>
                     <hr>
-
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead class="table-success">
+                          <tr>
+                            <th>Reg_No</th>
+                            <th>Date</th>
+                            <th>Full Name</th>
+                            <th>Program</th>
+                            <th>Comp_Id</th>
+                            <th>Complaint Description</th>
+                            <th>Faculty/School</th>
+                            <th>Department</th>
+                            <th>Course</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>21/U/ITE/8664/PE</td>
+                            <td>21/04/2023</td>
+                            <td>Pitt Eunice</td>
+                            <td>Information Technology and Computing</td>
+                            <td>093jf</td>
+                            <td>I have missing mark for computer maintenace of year 1 sem two.</td>
+                            <td>School of computing and information science</td>
+                            <td>Computer Science</td>
+                            <td>Computer Maintenace</td>
+                          </tr>
+                          <tr>
+                              <td>21/U/ITE/8664/PE</td>
+                              <td>21/04/2023</td>
+                              <td>Pitt Eunice</td>
+                              <td>Information Technology and Computing</td>
+                              <td>093jf</td>
+                              <td>I have missing mark for computer maintenace of year 1 sem two.</td>
+                              <td>School of computing and information science</td>
+                              <td>Computer Science</td>
+                              <td>Computer Maintenace</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
-                <div id="completed" class="tab-pane fade"><br>
+                <div id="completed" class="collapse"><br>
                     <h3 class="text-center">COMPLATED</h3>
                     <hr>
-
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead class="table-success">
+                          <tr>
+                            <th>Reg_No</th>
+                            <th>Date</th>
+                            <th>Full Name</th>
+                            <th>Program</th>
+                            <th>Comp_Id</th>
+                            <th>Complaint Description</th>
+                            <th>Faculty/School</th>
+                            <th>Department</th>
+                            <th>Course</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>21/U/ITE/8664/PE</td>
+                            <td>21/04/2023</td>
+                            <td>Pitt Eunice</td>
+                            <td>Information Technology and Computing</td>
+                            <td>093jf</td>
+                            <td>I have missing mark for computer maintenace of year 1 sem two.</td>
+                            <td>School of computing and information science</td>
+                            <td>Computer Science</td>
+                            <td>Computer Maintenace</td>
+                          </tr>
+                          <tr>
+                              <td>21/U/ITE/8664/PE</td>
+                              <td>21/04/2023</td>
+                              <td>Pitt Eunice</td>
+                              <td>Information Technology and Computing</td>
+                              <td>093jf</td>
+                              <td>I have missing mark for computer maintenace of year 1 sem two.</td>
+                              <td>School of computing and information science</td>
+                              <td>Computer Science</td>
+                              <td>Computer Maintenace</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
             </div>
         </div>
